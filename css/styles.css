@@ -1,0 +1,267 @@
+:root {
+    /* Natural Palette */
+    --bg-body: #F9F9F9;         /* Very subtle warm grey */
+    --bg-card: #FFFFFF;         /* Pure white */
+    
+    /* Text - Softer and smoother than pure black */
+    --text-main: #202124;       /* Deep Charcoal (Google Sans standard) */
+    --text-muted: #5F6368;      /* Smooth Slate Grey */
+    --text-light: #DADCE0;      /* Soft borders */
+    
+    /* Accent - Your Coral */
+    --accent: #FF7F6B;
+    --accent-faint: rgba(255, 127, 107, 0.08); /* For hover states */
+
+    /* Spacing */
+    --radius: 12px;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* REVERTED: Your preferred font */
+    font-family: "Google Sans Flex", sans-serif;
+    color: var(--text-main);
+}
+
+body {
+    background-color: var(--bg-body);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    line-height: 1.6;
+    /* Smooth font rendering */
+    -webkit-font-smoothing: antialiased;
+}
+
+.resume-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 50px;
+    /* Soft shadow to lift it off the page */
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 45px;
+    border-bottom: 1px solid var(--text-light);
+    padding-bottom: 25px;
+}
+
+.title {
+    font-size: 34px;
+    font-weight: 600; /* Slightly lighter weight looks smoother */
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.header-left p, .header-right p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+/* Coffee Link */
+.coffee-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin-right: -10px;
+}
+
+.coffee-link:hover {
+    color: var(--accent);
+    background-color: var(--accent-faint);
+}
+
+.coffee-icon {
+    margin-right: 8px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+.last-updated {
+    font-size: 12px;
+    color: var(--text-muted);
+    opacity: 0.8;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.update-icon {
+    margin-right: 6px;
+    stroke: currentColor;
+    fill: none;
+    width: 12px; height: 12px;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 45px;
+}
+
+.section-title {
+    color: var(--accent);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Work Items */
+.work-item {
+    margin-bottom: 32px;
+}
+
+.work-title {
+    font-size: 17px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.company {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.company-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.external-link-icon {
+    margin-left: 6px;
+    stroke: var(--text-muted);
+    fill: none;
+    
+    /* These were missing in my previous version: */
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    
+    width: 14px; 
+    height: 14px;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.company-link:hover .external-link-icon {
+    stroke: var(--accent);
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
+.separator {
+    margin: 0 10px;
+    color: var(--text-light);
+}
+
+.position {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.work-details {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* Bullet Lists */
+ul:not(.chip-container) {
+    padding-left: 0;
+}
+
+li:not(.chip) {
+    list-style: none;
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    color: var(--text-main); /* Ensure main text is dark enough */
+    font-size: 15px;
+}
+
+li:not(.chip)::before {
+    content: "•";
+    color: var(--accent); /* Softer bullet point */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* CHIPS STYLING (For Outside Work) */
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.chip {
+    background-color: var(--bg-body);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+/* Footer credit */
+.resume-credit {
+    margin-top: 60px;
+    text-align: center;
+    border-top: 1px dashed var(--text-light);
+    padding-top: 30px;
+}
+
+.resume-credit p {
+    color: var(--text-light);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.heart-icon {
+    fill: var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .resume-container { padding: 30px 20px; }
+    .header { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .header-right { align-items: flex-start; width: 100%; text-align: left; }
+    .coffee-link { margin-left: -10px; }
+}
